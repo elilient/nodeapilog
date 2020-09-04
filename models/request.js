@@ -13,7 +13,10 @@ const requestSchema = new Schema({
         token: String,
         ended: Boolean
     },
-    created_at: Date
+    created_at: Date,
+    log: {
+        type: String,
+    }
 });
 
 module.exports = mongoose.model("Request", requestSchema);
