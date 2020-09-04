@@ -10,7 +10,7 @@ router.get('/', async function (req, res) {
     const { rawHeaders, httpVersion, method, socket, url } = req;
     const { remoteAddress, remoteFamily } = socket;
     console.log(
-        JSON.parse({
+        JSON.stringify({
             timestamp: Date.now(),
             rawHeaders,
             httpVersion,
@@ -21,7 +21,7 @@ router.get('/', async function (req, res) {
         })
     );
     res.send(result);
-    res.end();
+
 });
 
 router.get('/logs', paginatedResults(Request), (req, res) => {
