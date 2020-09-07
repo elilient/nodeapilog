@@ -84,7 +84,7 @@ router.post('/', async function (req, res) {
     const { remoteAddress, remoteFamily } = socket;
     const { statusCode, statusMessage } = res;
     const headers = res.getHeaders();
-    const log = ({
+    const log = JSON.stringify({
         timestamp: Date.now(),
         rawHeaders,
         httpVersion,
@@ -140,7 +140,6 @@ router.post('/', async function (req, res) {
             });
     } catch (error) {
         res.statusCode = 400;
-        console.log(error);
         // Different slack payload on error
         const slackBody = {
             attachments: [
